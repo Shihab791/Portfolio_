@@ -1,9 +1,15 @@
+'use client';
 import Link from "next/link";
 import { Search } from "lucide-react";
 
 export default function Navbar() {
+  const scrollToProjects = () => {
+    document.getElementById("projects")?.scrollIntoView({
+      behavior: "smooth",
+    });
+  };
   return (
-    // ১. রেসপন্সিভ প্যাডিং সহ আপডেট করা <nav>
+    
     <nav className="bg-[#232931] px-3 sm:px-4 md:px-6 py-3 flex items-center justify-between text-white font-mono">
       
       {/* 2. রেসপন্সিভ লোগো এবং টেক্সট */}
@@ -26,12 +32,12 @@ export default function Navbar() {
             Home
           </Link>
 
-          <Link
-  href="/#projects"
-  className="text-[#eeeeee] hover:text-[#00adb5] transition-colors"
->
-  Projects
-</Link>
+          <button
+      onClick={scrollToProjects}
+      className="text-[#eeeeee] hover:text-[#00adb5]"
+    >
+      Projects
+    </button>
         </div>
 
         {/* 5. Search Bar (Responsive) */}

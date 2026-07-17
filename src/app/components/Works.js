@@ -88,7 +88,7 @@ export default function Works() {
 
       {/* Works হেডিং */}
       <div className="text-center mt-6 sm:mt-12 z-20">
-        <h2 className="text-4xl sm:text-[54px] font-bold tracking-wider text-[#00adb5] leading-none drop-shadow-[0_0_6px_#00adb5]">Works</h2>
+        <h2 className="text-4xl sm:text-[54px] font-bold tracking-wider text-[#00adb5] leading-none drop-shadow-[0_0_6px_#00adb5]">Projects</h2>
         <div className="w-16 sm:w-20 h-[3px] bg-[#00adb5] mx-auto mt-2 rounded-full relative shadow-[0_0_8px_#00adb5]">
           <div className="w-1.5 h-1.5 bg-[#00adb5] rounded-full absolute -left-1 -top-[1.5px]"></div>
           <div className="w-1.5 h-1.5 bg-[#00adb5] rounded-full absolute -right-1 -top-[1.5px]"></div>
@@ -97,7 +97,7 @@ export default function Works() {
 
       {/* সাবটাইটেল */}
       <p className="text-gray-400 text-[10px] sm:text-[11px] tracking-wide mt-3 text-center max-w-xs sm:max-w-xl z-20">
-        I had the pleasure of working with these awesome projects
+        Here are some of the projects I've worked on.
       </p>
 
       {/* মেইন কন্টেন্ট এরিয়া */}
