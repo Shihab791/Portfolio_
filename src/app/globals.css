@@ -133,3 +133,9 @@ transform:translateY(0);
 }
 
 }
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+}

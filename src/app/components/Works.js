@@ -24,7 +24,22 @@ export default function Works() {
       codeScreenImg: "/images/code-monitor3.png",
       webScreenImg: "ecommerce.png",
       link: "https://e-commerce-jliw.vercel.app/"
-    }
+    },
+    {
+    id: 4,
+    title: "Scope-suite",
+    codeScreenImg: "/images/code-monitor4.png",
+    webScreenImg: "scope-suite.png",
+    link: "https://scope-suite.vercel.app"
+  },
+  {
+    id: 5,
+    title: "Cha bari",
+    codeScreenImg: "/images/code-monitor4.png",
+    webScreenImg: "cha_bari.png",
+    link: "https://shihab791.github.io/Cha-Bari/"
+  }
+
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -40,6 +55,7 @@ export default function Works() {
   const currentProject = projects[currentIndex];
 
   return (
+    <section id="projects">
     <div className="min-h-screen bg-[#1f242c] text-white font-mono flex flex-col items-center justify-center relative px-4 sm:px-8 md:px-16 py-20 overflow-hidden select-none">
 
       {/* Background Image */}
@@ -208,5 +224,6 @@ export default function Works() {
       </div>
 
     </div>
+    </section>
   );
 }
