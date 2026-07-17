@@ -1,21 +1,101 @@
-// src/app/page.js
+"use client";
+
+import { useState } from "react";
 import AboutMe from "./components/About";
 import Skills from "./components/Skills";
 import Works from "./components/Works";
 import Contact from "./components/Contact";
 
 export default function Home() {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
     <>
-      {/* ----------------- সেকশন ১: হোম / প্রোফাইল পেজ ----------------- */}
-      <div className="min-h-[calc(100vh-68px)] bg-[#232931] text-white font-mono flex items-center justify-center relative px-4 sm:px-8 lg:px-16 xl:px-24 py-12 md:py-20 overflow-hidden">
+      {/* ----------------- মোবাইল হ্যামবার্গার ও টপ বার ----------------- */}
+      <div className="md:hidden bg-[#1c2229] border-b border-gray-800 sticky top-0 z-50 px-4 py-3 flex justify-between items-center text-white">
+        <div className="text-[#00adb5] font-bold tracking-wider font-mono">SHIHAB</div>
         
-        {/* ১. বাম পাশের ফিক্সড সাইডবার মেনু (মোবাইলে হাইড, md থেকে দেখাবে) */}
-        <div className="hidden md:flex absolute left-4 lg:left-8 top-1/2 -translate-y-1/2 flex-col items-center space-y-5 lg:space-y-7 bg-[#1c2229] border border-gray-800 py-5 px-3 rounded-full shadow-2xl z-20">
+        {/* হ্যামবার্গার বাটন */}
+        <button 
+          onClick={() => setIsOpen(!isOpen)}
+          className="text-gray-400 hover:text-[#00adb5] focus:outline-none p-1"
+        >
+          {isOpen ? (
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          ) : (
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          )}
+        </button>
+
+        {/* মোবাইলের ড্রপডাউন মেনু */}
+        {isOpen && (
+          <div className="absolute top-full left-0 w-full bg-[#1c2229] border-b border-gray-800 shadow-xl flex flex-col p-4 space-y-4 text-sm font-mono z-50">
+            {/* মেনু অপশনসমূহ */}
+            <button onClick={() => setIsOpen(false)} className="flex items-center space-x-3 text-white bg-gray-800/50 p-2.5 rounded-lg">
+              <svg className="w-4 h-4 text-[#00adb5]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="3" y="3" width="7" height="7" /><rect x="14" y="3" width="7" height="7" /><rect x="14" y="14" width="7" height="7" /><rect x="3" y="14" width="7" height="7" /></svg>
+              <span>Home</span>
+            </button>
+            <button onClick={() => setIsOpen(false)} className="flex items-center space-x-3 text-gray-300 hover:text-[#00adb5] p-2.5 rounded-lg transition-colors">
+              <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" /><circle cx="12" cy="7" r="4" /></svg>
+              <span>About Me</span>
+            </button>
+            <button onClick={() => setIsOpen(false)} className="flex items-center space-x-3 text-gray-300 hover:text-[#00adb5] p-2.5 rounded-lg transition-colors">
+              <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polyline points="16 18 22 12 16 6" /><polyline points="8 6 2 12 8 18" /></svg>
+              <span>Skills</span>
+            </button>
+            <button onClick={() => setIsOpen(false)} className="flex items-center space-x-3 text-gray-300 hover:text-[#00adb5] p-2.5 rounded-lg transition-colors">
+              <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2" /><line x1="8" y1="21" x2="16" y2="21" /><line x1="12" y1="17" x2="12" y2="21" /></svg>
+              <span>Works</span>
+            </button>
+            <button onClick={() => setIsOpen(false)} className="flex items-center space-x-3 text-gray-300 hover:text-[#00adb5] p-2.5 rounded-lg transition-colors">
+              <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" /><polyline points="22,6 12,13 2,6" /></svg>
+              <span>Contact</span>
+            </button>
+
+            {/* ডিভাইডার লাইন */}
+            <div className="border-t border-gray-800 my-2"></div>
+
+            {/* সোশ্যাল মিডিয়া অপশনসমূহ (এখানে '#' এর জায়গায় আপনার নিজস্ব লিঙ্ক বসিয়ে দিন) */}
+            <div className="flex justify-around items-center pt-2">
+              {/* GitHub */}
+              <a href="https://github.com" target="_blank" rel="noopener noreferrer" onClick={() => setIsOpen(false)} className="p-2 text-gray-400 hover:text-[#00adb5] bg-gray-800/30 rounded-full transition-colors">
+                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path fillRule="evenodd" clipRule="evenodd" d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.483 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.464-1.11-1.464-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.579.688.481C19.137 20.164 22 16.418 22 12c0-5.523-4.477-10-10-10z" />
+                </svg>
+              </a>
+              {/* LinkedIn */}
+              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" onClick={() => setIsOpen(false)} className="p-2 text-gray-400 hover:text-[#00adb5] bg-gray-800/30 rounded-full transition-colors">
+                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                </svg>
+              </a>
+              {/* Instagram */}
+              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" onClick={() => setIsOpen(false)} className="p-2 text-gray-400 hover:text-[#00adb5] bg-gray-800/30 rounded-full transition-colors">
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                  <rect x="2" y="2" width="20" height="100%" rx="5" ry="5" className="h-20 w-20" fill="none" strokeWidth="2" />
+                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" strokeWidth="3" strokeLinecap="round" />
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                </svg>
+              </a>
+            </div>
+          </div>
+        )}
+      </div>
+
+      {/* ----------------- সেকশন ১: হোম / প্রোফাইল পেজ ----------------- */}
+      <div className="min-h-[calc(100vh-120px)] md:min-h-[calc(100vh-68px)] bg-[#232931] text-white font-mono flex items-center justify-center relative px-4 sm:px-8 lg:px-16 xl:px-24 py-10 md:py-20 overflow-hidden">
+        
+        {/* ১. বাম পাশের ফিক্সড সাইডবার মেনু (ডেস্কটপ ও ট্যাবলেট) */}
+        <div className="hidden md:flex absolute left-4 lg:left-8 top-1/2 -translate-y-1/2 flex-col items-center space-y-4 lg:space-y-5 bg-[#1c2229] border border-gray-800 py-5 px-3 rounded-full shadow-2xl z-20">
           <button className="bg-white text-black p-2 rounded-full transition-transform hover:scale-110">
             <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><rect x="3" y="3" width="7" height="7" /><rect x="14" y="3" width="7" height="7" /><rect x="14" y="14" width="7" height="7" /><rect x="3" y="14" width="7" height="7" /></svg>
           </button>
-          <button className="text-gray-400 hover:text-[#00adb5] transition-colors pt-2">
+          <button className="text-gray-400 hover:text-[#00adb5] transition-colors">
             <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" /><circle cx="12" cy="7" r="4" /></svg>
           </button>
           <button className="text-gray-400 hover:text-[#00adb5] transition-colors">
@@ -25,28 +105,34 @@ export default function Home() {
             <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2" /><line x1="8" y1="21" x2="16" y2="21" /><line x1="12" y1="17" x2="12" y2="21" /></svg>
           </button>
           <button className="text-gray-400 hover:text-[#00adb5] transition-colors">
-            <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 20h9" /><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z" /></svg>
-          </button>
-          <button className="text-gray-400 hover:text-[#00adb5] transition-colors pb-1">
             <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" /><polyline points="22,6 12,13 2,6" /></svg>
           </button>
+
+          {/* ডিভাইডার */}
+          <div className="w-full border-t border-gray-800 my-1"></div>
+
+          {/* ডেস্কটপ সোশ্যাল আইকনসমূহ */}
+          <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-[#00adb5] transition-colors">
+            <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.483 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.464-1.11-1.464-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.579.688.481C19.137 20.164 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
+          </a>
+          <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-[#00adb5] transition-colors">
+            <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+          </a>
+          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-[#00adb5] transition-colors">
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5" strokeWidth="3" strokeLinecap="round"/></svg>
+          </a>
         </div>
 
         {/* মূল লেআউট কন্টেইনার */}
         <div className="max-w-7xl mx-auto w-full flex flex-col lg:grid lg:grid-cols-12 items-center lg:items-center gap-10 lg:gap-8 xl:gap-12 md:pl-16 lg:pl-16 z-10">
           
-          {/* ২. প্রোফাইল কার্ড */}
-          <div className="w-full max-w-[340px] sm:max-w-[360px] lg:max-w-none lg:col-span-4 relative">
+          {/* প্রোফাইল কার্ড */}
+          <div className="w-full max-w-[320px] sm:max-w-[360px] lg:max-w-none lg:col-span-4 relative">
             <div className="absolute -inset-[2px] rounded-[0px_60px_0px_60px] sm:rounded-[0px_80px_0px_80px] border-[3px] border-[#00adb5] pointer-events-none"></div>
             
             <div className="relative bg-[#1c2229] rounded-[0px_60px_0px_60px] sm:rounded-[0px_80px_0px_80px] p-6 sm:p-8 w-full text-center flex flex-col items-center shadow-2xl">
-              {/* প্রোফাইল ছবি */}
               <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-full border-[3px] border-[#00adb5] overflow-hidden bg-[#2d3743] mb-4">
-                <img
-                  src="profile.jpeg"
-                  alt="Shihab"
-                  className="w-full h-full object-cover"
-                />
+                <img src="profile.jpeg" alt="Shihab" className="w-full h-full object-cover" />
               </div>
               
               <h2 className="text-xl sm:text-2xl font-bold tracking-wide text-white">Shihab</h2>
@@ -79,7 +165,6 @@ export default function Home() {
                 ))}
               </div>
 
-              {/* ডাউনলোড সিভি বাটন */}
               <a
                 href="/shihabResume.pdf"
                 download="shihabResume.pdf"
@@ -95,7 +180,7 @@ export default function Home() {
             </div>
           </div>
 
-          {/* ৩. মাঝখানের মূল টাইটেল ও বিবরণী অংশ */}
+          {/* মাঝখানের টাইটেল ও বিবরণী */}
           <div className="w-full lg:col-span-5 flex flex-col justify-center text-center lg:text-left items-center lg:items-start px-2 sm:px-4 lg:px-0">
             <div className="hidden lg:block text-gray-500 text-[11px] mb-1 self-start">&lt;h1&gt;</div>
             <h1 className="text-3xl sm:text-4xl xl:text-5xl font-bold leading-[1.2] tracking-wide text-white lg:pl-4">
@@ -111,7 +196,6 @@ export default function Home() {
             </p>
             <div className="hidden lg:block text-gray-500 text-[11px] mt-1 self-start">&lt;/p&gt;</div>
 
-            {/* Let's Talk Button */}
             <div className="flex items-center space-x-3 group cursor-pointer w-fit mt-6 lg:mt-8 lg:pl-4">
               <span className="text-xl sm:text-2xl font-bold text-[#00adb5] tracking-wide group-hover:text-white transition-colors">Let's Talk</span>
               <div className="bg-[#1c2229] border border-gray-700 p-2.5 rounded-full text-[#00adb5] shadow-lg group-hover:bg-[#00adb5] group-hover:text-black transition-all">
@@ -120,9 +204,8 @@ export default function Home() {
             </div>
           </div>
 
-          {/* ৪. এক্সপেরিয়েন্স স্ট্যাটস কার্ড */}
-          <div className="w-full max-w-[340px] sm:max-w-[400px] lg:max-w-none lg:col-span-3 bg-[#1c2229] rounded-[30px] sm:rounded-[40px] px-6 sm:px-8 py-5 sm:py-6 lg:py-8 flex flex-row lg:flex-col justify-around lg:justify-center gap-4 lg:gap-6 shadow-2xl border border-gray-800/50 lg:self-center">
-            
+          {/* এক্সপেরিয়েন্স স্ট্যাটস কার্ড */}
+          <div className="w-full max-w-[320px] sm:max-w-[400px] lg:max-w-none lg:col-span-3 bg-[#1c2229] rounded-[30px] sm:rounded-[40px] px-6 sm:px-8 py-5 sm:py-6 lg:py-8 flex flex-row lg:flex-col justify-around lg:justify-center gap-4 lg:gap-6 shadow-2xl border border-gray-800/50 lg:self-center">
             <div className="flex items-center space-x-3 sm:space-x-4">
               <span className="text-3xl sm:text-4xl font-bold text-[#00adb5]">5</span>
               <span className="text-[9px] sm:text-[10px] text-gray-400 font-sans font-medium uppercase tracking-wider leading-tight text-left">
@@ -138,12 +221,11 @@ export default function Home() {
                 Development<br />Tools
               </span>
             </div>
-            
           </div>
 
         </div>
 
-        {/* নিচের দিকে সেকশন কানেক্ট করার জন্য একটি ড্যাশড লাইন */}
+        {/* ড্যাশড লাইন */}
         <div className="absolute bottom-0 left-1/2 -translate-x-1/2 flex flex-col items-center z-20">
           <div className="h-10 border-l-2 border-dashed border-[#00adb5]/40 relative">
             <div className="w-1.5 h-1.5 bg-[#00adb5] rotate-45 absolute -bottom-1 -left-[4px] shadow-[0_0_8px_#00adb5]"></div>
@@ -152,7 +234,6 @@ export default function Home() {
 
       </div>
 
-      {/* অন্যান্য সাব-সেকশনসমূহ */}
       <AboutMe />
       <Skills />
       <Works />
