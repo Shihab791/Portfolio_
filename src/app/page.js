@@ -47,10 +47,6 @@ export default function Home() {
           
           {/* মাঝখানের টাইটেল ও বিবরণী (text-left items-start এবং order-1 lg:order-2) */}
           <div className="order-1 lg:order-2 w-full lg:col-span-5 flex flex-col justify-center text-left items-start px-2 sm:px-4 lg:px-0">
-            {/* মোবাইল লেআউটের জন্য নতুন হেডিং (block lg:hidden) */}
-            <h2 className="block lg:hidden text-5xl font-light text-[#8ffcff] mb-8">
-              Developer
-            </h2>
 
             <div className="hidden lg:block text-gray-500 text-[11px] mb-1 self-start">&lt;h1&gt;</div>
             <h1 className="text-4xl sm:text-5xl lg:text-5xl font-bold leading-[1.2] tracking-wide text-white lg:pl-4">
