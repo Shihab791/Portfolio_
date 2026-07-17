@@ -8,10 +8,10 @@ export default function Home() {
   return (
     <>
       {/* ----------------- সেকশন ১: হোম / প্রোফাইল পেজ ----------------- */}
-      <div className="min-h-[calc(100vh-68px)] bg-[#232931] text-white font-mono flex justify-center relative px-4 sm:px-8 lg:px-16 pb-20 pt-8 overflow-hidden">
+      <div className="min-h-[calc(100vh-68px)] bg-[#232931] text-white font-mono flex items-center justify-center relative px-4 sm:px-8 lg:px-16 xl:px-24 py-12 md:py-20 overflow-hidden">
         
         {/* ১. বাম পাশের ফিক্সড সাইডবার মেনু (মোবাইলে হাইড, md থেকে দেখাবে) */}
-        <div className="hidden md:flex absolute left-2 lg:left-8 top-1/2 -translate-y-1/2 flex-col items-center space-y-5 lg:space-y-7 bg-[#1c2229] border border-gray-800 py-4 lg:py-6 px-2.5 lg:px-3.5 rounded-full shadow-2xl z-20">
+        <div className="hidden md:flex absolute left-4 lg:left-8 top-1/2 -translate-y-1/2 flex-col items-center space-y-5 lg:space-y-7 bg-[#1c2229] border border-gray-800 py-5 px-3 rounded-full shadow-2xl z-20">
           <button className="bg-white text-black p-2 rounded-full transition-transform hover:scale-110">
             <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><rect x="3" y="3" width="7" height="7" /><rect x="14" y="3" width="7" height="7" /><rect x="14" y="14" width="7" height="7" /><rect x="3" y="14" width="7" height="7" /></svg>
           </button>
@@ -32,15 +32,14 @@ export default function Home() {
           </button>
         </div>
 
-        {/* মূল লেআউট: মোবাইলে column, lg থেকে 12-কলাম গ্রিড */}
-        <div className="relative lg:-top-20 max-w-7xl mx-auto w-full flex flex-col lg:grid lg:grid-cols-12 items-center lg:items-end gap-10 lg:gap-12 lg:pl-12 z-10 pt-4 lg:pt-0">
+        {/* মূল লেআউট কন্টেইনার */}
+        <div className="max-w-7xl mx-auto w-full flex flex-col lg:grid lg:grid-cols-12 items-center lg:items-center gap-10 lg:gap-8 xl:gap-12 md:pl-16 lg:pl-16 z-10">
           
-          {/* ২. প্রোফাইল কার্ড (মোবাইলে full-width, lg-তে col-span-4) */}
-          <div className="w-full max-w-[340px] lg:max-w-none lg:col-span-4 relative justify-self-center">
-            <div className="absolute -inset-[2px] rounded-[0px_60px_0px_60px] sm:rounded-[0px_90px_0px_90px] border-[3px] border-[#00adb5] pointer-events-none"></div>
+          {/* ২. প্রোফাইল কার্ড */}
+          <div className="w-full max-w-[340px] sm:max-w-[360px] lg:max-w-none lg:col-span-4 relative">
+            <div className="absolute -inset-[2px] rounded-[0px_60px_0px_60px] sm:rounded-[0px_80px_0px_80px] border-[3px] border-[#00adb5] pointer-events-none"></div>
             
-            <div className="relative bg-[#1c2229] rounded-[0px_60px_0px_60px] sm:rounded-[0px_90px_0px_90px] p-6 sm:p-8 w-full text-center flex flex-col items-center shadow-2xl">
-              
+            <div className="relative bg-[#1c2229] rounded-[0px_60px_0px_60px] sm:rounded-[0px_80px_0px_80px] p-6 sm:p-8 w-full text-center flex flex-col items-center shadow-2xl">
               {/* প্রোফাইল ছবি */}
               <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-full border-[3px] border-[#00adb5] overflow-hidden bg-[#2d3743] mb-4">
                 <img
@@ -67,14 +66,12 @@ export default function Home() {
                   <span className="text-gray-400">Fresher</span>
                 </div>
                 <div className="flex items-center space-x-3">
-                  <svg className="w-3.5 h-3.5 text-[#00adb5] flex-shrink-0" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
-                  </svg>
+                  <svg className="w-3.5 h-3.5 text-[#00adb5] flex-shrink-0" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
                   <span className="text-gray-400">+880 1889804917</span>
                 </div>
               </div>
 
-              <div className="flex flex-wrap gap-2 justify-center mb-6 max-w-[280px]">
+              <div className="flex flex-wrap gap-1.5 justify-center mb-6 w-full">
                 {["HTML", "CSS", "JS", "REACT", "NEXT.JS", "FLUTTER", "DART", "PYTHON", "DJANGO"].map((skill) => (
                   <span key={skill} className="bg-[#00adb5] text-[#1c2229] text-[9px] font-bold px-2 py-0.5 rounded-sm">
                     {skill}
@@ -82,11 +79,11 @@ export default function Home() {
                 ))}
               </div>
 
-              {/* ফিক্সড ডাউনলোড সিভি বাটন */}
+              {/* ডাউনলোড সিভি বাটন */}
               <a
                 href="/shihabResume.pdf"
                 download="shihabResume.pdf"
-                className="w-[85%] bg-white text-black font-bold py-2.5 px-4 rounded-full flex items-center justify-center space-x-2 hover:bg-opacity-90 transition-all shadow-md text-xs"
+                className="w-full bg-white text-black font-bold py-2.5 px-4 rounded-full flex items-center justify-center space-x-2 hover:bg-[#00adb5] hover:text-white transition-all shadow-md text-xs"
               >
                 <span>Download CV</span>
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
@@ -99,46 +96,49 @@ export default function Home() {
           </div>
 
           {/* ৩. মাঝখানের মূল টাইটেল ও বিবরণী অংশ */}
-          <div className="w-full lg:col-span-5 lg:pl-4 flex flex-col justify-end pb-2 text-center lg:text-left items-center lg:items-start">
-            <div className="hidden sm:block text-gray-500 text-[11px] mb-2 self-start">&lt;h1&gt;</div>
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-[1.15] tracking-wide text-white lg:pl-4">
+          <div className="w-full lg:col-span-5 flex flex-col justify-center text-center lg:text-left items-center lg:items-start px-2 sm:px-4 lg:px-0">
+            <div className="hidden lg:block text-gray-500 text-[11px] mb-1 self-start">&lt;h1&gt;</div>
+            <h1 className="text-3xl sm:text-4xl xl:text-5xl font-bold leading-[1.2] tracking-wide text-white lg:pl-4">
               Hey<br />
               I'm <span className="text-[#00adb5]">Shihab</span>,<br />
               Full-Stack Developer
             </h1>
-            <div className="hidden sm:block text-gray-500 text-[11px] mt-2 lg:pr-20 text-right w-full">&lt;/h1&gt;</div>
+            <div className="hidden lg:block text-gray-500 text-[11px] mt-1 text-right w-full lg:max-w-md">&lt;/h1&gt;</div>
 
-            <div className="hidden sm:block text-gray-500 text-[11px] mb-2 mt-4 self-start">&lt;p&gt;</div>
-            <p className="text-gray-300 text-[12px] leading-relaxed max-w-md lg:pl-4 lg:pr-6 mt-4 lg:mt-0 px-4 lg:px-0">
+            <div className="hidden lg:block text-gray-500 text-[11px] mb-1 mt-4 self-start">&lt;p&gt;</div>
+            <p className="text-gray-300 text-xs sm:text-[13px] lg:text-[12px] leading-relaxed max-w-md lg:pl-4 mt-4 lg:mt-0">
               I develop responsive websites and cross-platform mobile apps that deliver seamless performance and exceptional user experiences.
             </p>
-            <div className="hidden sm:block text-gray-500 text-[11px] mt-2 self-start">&lt;/p&gt;</div>
+            <div className="hidden lg:block text-gray-500 text-[11px] mt-1 self-start">&lt;/p&gt;</div>
 
-            <div className="flex items-center space-x-3 group cursor-pointer w-fit mt-8 lg:pl-4">
-              <span className="text-xl sm:text-2xl font-bold text-[#00adb5] tracking-wide">Let's Talk</span>
-              <div className="bg-[#1c2229] border border-gray-700 p-2.5 rounded-full text-[#00adb5] shadow-lg">
+            {/* Let's Talk Button */}
+            <div className="flex items-center space-x-3 group cursor-pointer w-fit mt-6 lg:mt-8 lg:pl-4">
+              <span className="text-xl sm:text-2xl font-bold text-[#00adb5] tracking-wide group-hover:text-white transition-colors">Let's Talk</span>
+              <div className="bg-[#1c2229] border border-gray-700 p-2.5 rounded-full text-[#00adb5] shadow-lg group-hover:bg-[#00adb5] group-hover:text-black transition-all">
                 <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" /><polyline points="22,6 12,13 2,6" /></svg>
               </div>
             </div>
           </div>
 
           {/* ৪. এক্সপেরিয়েন্স স্ট্যাটস কার্ড */}
-          <div className="w-full max-w-[280px] sm:max-w-[210px] lg:col-span-3 justify-self-center lg:justify-self-end relative lg:-top-16 bg-[#1c2229] rounded-[40px] px-8 py-6 lg:py-8 flex flex-row lg:flex-col justify-around lg:justify-start gap-4 lg:gap-8 lg:w-[210px] lg:h-[260px] shadow-2xl border border-gray-800/50">
-            <div className="flex items-center space-x-4">
-              <span className="text-3xl lg:text-4xl font-bold text-[#00adb5]">5</span>
-              <span className="text-[10px] text-gray-400 font-sans font-medium uppercase tracking-wider leading-tight">
+          <div className="w-full max-w-[340px] sm:max-w-[400px] lg:max-w-none lg:col-span-3 bg-[#1c2229] rounded-[30px] sm:rounded-[40px] px-6 sm:px-8 py-5 sm:py-6 lg:py-8 flex flex-row lg:flex-col justify-around lg:justify-center gap-4 lg:gap-6 shadow-2xl border border-gray-800/50 lg:self-center">
+            
+            <div className="flex items-center space-x-3 sm:space-x-4">
+              <span className="text-3xl sm:text-4xl font-bold text-[#00adb5]">5</span>
+              <span className="text-[9px] sm:text-[10px] text-gray-400 font-sans font-medium uppercase tracking-wider leading-tight text-left">
                 Programming<br />Language
               </span>
             </div>
 
-            <div className="hidden lg:block border-t border-gray-800"></div>
+            <div className="hidden lg:block border-t border-gray-800/60 w-full"></div>
 
-            <div className="flex items-center space-x-4">
-              <span className="text-3xl lg:text-4xl font-bold text-[#00adb5]">4</span>
-              <span className="text-[10px] text-gray-400 font-sans font-medium uppercase tracking-wider leading-tight">
+            <div className="flex items-center space-x-3 sm:space-x-4">
+              <span className="text-3xl sm:text-4xl font-bold text-[#00adb5]">4</span>
+              <span className="text-[9px] sm:text-[10px] text-gray-400 font-sans font-medium uppercase tracking-wider leading-tight text-left">
                 Development<br />Tools
               </span>
             </div>
+            
           </div>
 
         </div>
