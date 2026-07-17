@@ -1,9 +1,10 @@
 // src/app/components/About.js
 export default function AboutMe() {
   return (
-    <div className="min-h-screen bg-[#0f1316] text-white font-mono flex flex-col items-center justify-center relative px-24 py-16 overflow-hidden select-none">
+    <div className="min-h-screen bg-[#0f1316] text-white font-mono flex flex-col items-center justify-center relative px-4 sm:px-8 md:px-16 lg:px-24 py-20 lg:py-16 overflow-hidden select-none">
       
-      <div className="absolute inset-0 opacity-[0.25] pointer-events-none z-0">
+      {/* ১. ব্যাকগ্রাউন্ড SVG লাইন (মোবাইলে অপাসিটি কমানো হয়েছে ক্ল্যারিটির জন্য) */}
+      <div className="absolute inset-0 opacity-[0.12] sm:opacity-[0.25] pointer-events-none z-0">
         <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
           <path d="M -50,300 C 100,200 150,450 400,350 S 550,150 700,250" fill="none" stroke="#2c3a47" strokeWidth="2" />
           <path d="M -50,340 C 120,240 170,490 420,390 S 570,190 720,290" fill="none" stroke="#2c3a47" strokeWidth="2" />
@@ -13,7 +14,7 @@ export default function AboutMe() {
           <path d="M 510,160 C 570,130 690,140 750,220 S 680,340 580,310 S 450,190 510,160 Z" fill="none" stroke="#2c3a47" strokeWidth="1.5" />
           <path d="M 540,190 C 580,170 660,180 700,230 S 650,290 580,270 S 500,210 540,190 Z" fill="none" stroke="#2c3a47" strokeWidth="1.2" />
 
-          {/* ডান পাশের বড় ও বাঁকানো দাগগুলো */}
+          {/* ডান পাশের বড় ও বাঁকানো দাগগুলো */}
           <path d="M 850,-50 C 1050,150 1200,0 1450,200 S 1700,-50 1950,150" fill="none" stroke="#2c3a47" strokeWidth="2" />
           <path d="M 880,-20 C 1080,180 1230,30 1480,230 S 1730,-20 1980,180" fill="none" stroke="#2c3a47" strokeWidth="2" />
           <path d="M 910,10 C 1110,210 1260,60 1510,260 S 1760,10 2010,210" fill="none" stroke="#2c3a47" strokeWidth="2" />
@@ -25,8 +26,8 @@ export default function AboutMe() {
         </svg>
       </div>
 
-      {/* ২. বাম পাশের ফিক্সড ওভাল সাইডবার */}
-      <div className="absolute left-8 top-1/2 -translate-y-1/2 flex flex-col items-center space-y-6 bg-[#161a1e]/95 border border-gray-800/80 py-6 px-3.5 rounded-full shadow-[0_25px_60px_rgba(0,0,0,0.6)] z-20">
+      {/* ২. বাম পাশের ফিক্সড ওভাল সাইডবার (মোবাইলে হাইড, md থেকে দেখাবে) */}
+      <div className="hidden md:flex absolute left-4 lg:left-8 top-1/2 -translate-y-1/2 flex-col items-center space-y-6 bg-[#161a1e]/95 border border-gray-800/80 py-6 px-3.5 rounded-full shadow-[0_25px_60px_rgba(0,0,0,0.6)] z-20">
         <button className="text-gray-400 hover:text-white transition-colors">
           <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><rect x="3" y="3" width="7" height="7" /><rect x="14" y="3" width="7" height="7" /><rect x="14" y="14" width="7" height="7" /><rect x="3" y="14" width="7" height="7" /></svg>
         </button>
@@ -52,77 +53,77 @@ export default function AboutMe() {
         <div className="w-[20px] h-[32px] border-2 border-[#00adb5] rounded-full flex justify-center pt-1.5 shadow-[0_0_8px_rgba(0,173,181,0.3)]">
           <div className="w-[3px] h-[6px] bg-[#00adb5] rounded-full animate-bounce"></div>
         </div>
-        <div className="h-14 border-l-2 border-dashed border-gray-600/70 mt-1 relative">
+        <div className="h-10 sm:h-14 border-l-2 border-dashed border-gray-600/70 mt-1 relative">
           <div className="w-1.5 h-1.5 bg-white rotate-45 absolute -bottom-1 -left-[4px]"></div>
         </div>
       </div>
 
-      {/* মেইন গ্রিড লেআউট */}
-      <div className="max-w-6xl mx-auto w-full grid grid-cols-12 items-center gap-12 z-10 pl-16 mt-0">
+      {/* মেইন লেআউট কন্টেইনার: মোবাইলে flex-col, ডেস্কটপে grid */}
+      <div className="max-w-6xl mx-auto w-full flex flex-col lg:grid lg:grid-cols-12 items-center gap-10 lg:gap-12 z-10 md:pl-12 lg:pl-16 mt-12 lg:mt-0">
         
-        {/* ৪. বাম পাশের কন্টেন্ট এরিয়া */}
-        <div className="col-span-7 flex flex-col space-y-8">
+        {/* ৪. কন্টেন্ট এরিয়া (মোবাইলে full width, ডেস্কটপে col-span-7) */}
+        <div className="w-full lg:col-span-7 flex flex-col items-center lg:items-start space-y-6 sm:space-y-8">
           
           {/* টাইটেল বক্স */}
           <div className="relative w-fit">
-            <div className="bg-[#11161a] border border-[#00adb5] rounded-tr-[28px] rounded-bl-[28px] px-12 py-3.5 shadow-[0_0_35px_rgba(0,173,181,.25)]">
-              <h2 className="text-3xl font-semibold tracking-wide text-white font-sans">About Me</h2>
+            <div className="bg-[#11161a] border border-[#00adb5] rounded-tr-[28px] rounded-bl-[28px] px-8 sm:px-12 py-3 shadow-[0_0_35px_rgba(0,173,181,.25)]">
+              <h2 className="text-2xl sm:text-3xl font-semibold tracking-wide text-white font-sans">About Me</h2>
             </div>
           </div>
 
           {/* কোড টেক্সট বক্স */}
-          <div className="bg-[#212730]/95 border border-gray-800/60 rounded-[28px] p-8 shadow-2xl space-y-5 w-[620px] text-[13px] font-sans tracking-wide text-gray-400 leading-7">
+          <div className="bg-[#212730]/95 border border-gray-800/60 rounded-[24px] sm:rounded-[28px] p-5 sm:p-8 shadow-2xl space-y-4 sm:space-y-5 w-full max-w-[620px] text-[12px] sm:text-[13px] font-sans tracking-wide text-gray-400 leading-6 sm:leading-7">
+            
+            <div className="text-gray-600 text-[10px] font-mono">
+              &lt;p&gt;
+            </div>
 
-  <div className="text-gray-600 text-[10px] font-mono">
-    &lt;p&gt;
-  </div>
+            <h3 className="text-xl sm:text-[25px] font-medium text-[#00adb5] font-mono">
+              Hello!
+            </h3>
 
-  <h3 className="text-[25px] font-medium text-[#00adb5] font-mono">
-    Hello!
-  </h3>
+            <p className="font-light leading-6 sm:leading-8">
+              My name is <span className="text-[#00adb5]">Md Enjamul Haque Shihab</span>, and I am a passionate
+              <span className="text-[#00adb5]"> Full-Stack Developer</span> with a strong interest in building
+              modern <span className="text-[#00adb5]">websites</span> and
+              <span className="text-[#00adb5]"> cross-platform mobile applications</span>.
+              I work with <span className="text-[#00adb5]">HTML</span>,
+              <span className="text-[#00adb5]"> CSS</span>,
+              <span className="text-[#00adb5]"> JavaScript</span>,
+              <span className="text-[#00adb5]"> React</span>,
+              <span className="text-[#00adb5]"> Next.js</span>,
+              <span className="text-[#00adb5]"> Flutter</span>,
+              <span className="text-[#00adb5]"> Dart</span>,
+              <span className="text-[#00adb5]"> Python</span>, and
+              <span className="text-[#00adb5]"> Django</span> to build responsive,
+              user-friendly, and high-performance applications.
+            </p>
 
-  <p className="font-light leading-8">
-    My name is <span className="text-[#00adb5]">Md Enjamul Haque Shihab</span>, and I am a passionate
-    <span className="text-[#00adb5]"> Full-Stack Developer</span> with a strong interest in building
-    modern <span className="text-[#00adb5]">websites</span> and
-    <span className="text-[#00adb5]"> cross-platform mobile applications</span>.
-    I work with <span className="text-[#00adb5]">HTML</span>,
-    <span className="text-[#00adb5]"> CSS</span>,
-    <span className="text-[#00adb5]"> JavaScript</span>,
-    <span className="text-[#00adb5]"> React</span>,
-    <span className="text-[#00adb5]"> Next.js</span>,
-    <span className="text-[#00adb5]"> Flutter</span>,
-    <span className="text-[#00adb5]"> Dart</span>,
-    <span className="text-[#00adb5]"> Python</span>, and
-    <span className="text-[#00adb5]"> Django</span> to build responsive,
-    user-friendly, and high-performance applications.
-  </p>
+            <p className="font-light leading-6 sm:leading-8">
+              I enjoy solving real-world problems through clean, efficient, and maintainable
+              code. As a continuous learner, I am always exploring new technologies and
+              improving my development skills to become a better software engineer every day.
+            </p>
 
-  <p className="font-light leading-8">
-    I enjoy solving real-world problems through clean, efficient, and maintainable
-    code. As a continuous learner, I am always exploring new technologies and
-    improving my development skills to become a better software engineer every day.
-  </p>
+            <p className="font-light leading-6 sm:leading-8">
+              Beyond coding, I enjoy learning about emerging technologies, building personal
+              projects, and challenging myself with new ideas that expand my knowledge and
+              creativity. My goal is to create innovative digital solutions that provide
+              meaningful value and exceptional user experiences.
+            </p>
 
-  <p className="font-light leading-8">
-    Beyond coding, I enjoy learning about emerging technologies, building personal
-    projects, and challenging myself with new ideas that expand my knowledge and
-    creativity. My goal is to create innovative digital solutions that provide
-    meaningful value and exceptional user experiences.
-  </p>
+            <div className="text-gray-600 text-[10px] font-mono">
+              &lt;/p&gt;
+            </div>
 
-  <div className="text-gray-600 text-[10px] font-mono">
-    &lt;/p&gt;
-  </div>
-
-</div>
+          </div>
         </div>
 
-        {/* ৫. ডানপাশের ইমেজ কার্ড */}
-        <div className="col-span-5 justify-self-end relative">
-          <div className="relative rounded-[36px] overflow-hidden w-[430px] h-[430px] shadow-[0_30px_70px_rgba(0,173,181,.18)] border border-gray-800/40">
+        {/* ৫. ডানপাশের ইমেজ কার্ড (মোবাইলে নিচে চলে যাবে এবং রেসপন্সিভলি স্কেল হবে) */}
+        <div className="w-full lg:col-span-5 flex justify-center lg:justify-end relative mt-4 lg:mt-0">
+          <div className="relative rounded-[24px] sm:rounded-[36px] overflow-hidden w-full max-w-[320px] sm:max-w-[400px] lg:w-[430px] aspect-square shadow-[0_30px_70px_rgba(0,173,181,.18)] border border-gray-800/40">
             <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-black/10 z-10 pointer-events-none"></div>
-             <div className="absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-black/40 z-10 pointer-events-none"></div>
+            <div className="absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-black/40 z-10 pointer-events-none"></div>
             <img 
               src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=600&auto=format&fit=crop" 
               alt="Developer Workspace" 
